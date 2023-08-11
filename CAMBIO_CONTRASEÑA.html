@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>RECUPERAR CONTRASEÑA</title>
+  <script>
+    function validar_correo() {
+    var correo = document.getElementById("correo").value;
+
+    if ( correo === "") {
+            alert("POR FAVOR, INGRESE SU CORREO ELECTRONICO");
+            return false;
+        }
+
+    var correoRegex = /^\S+@\S+\.\S+$/;
+    
+
+    if (!correoRegex.test(correo)) {
+        alert("INGRESE SU CORREO EN FORMATO CORRECTO (ejemplo@correo.com)");
+        return false;
+    }
+
+    alert("HEMOS ENVIADO A SU CORREO EELCTRONICO LAS INSTRUCCIONES PARA RESTABLECER TU CONTRASEÑA");
+    window.location.href = "LOGIN.html";
+    }
+  </script>
+</head>
+<body>
+  <h1>RECUPERAR CONTRASEÑA</h1>
+  <p>INGRESA TU CORREO ELECTRONICO</p>
+
+  <form id="contraeseña">
+    <input type="text" id="correo" placeholder="Correo" required><br>
+    <button type="button" onclick="validar_correo()">ENVIAR</button>
+</body>
+</html>

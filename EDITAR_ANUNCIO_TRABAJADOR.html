@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EDITAR ANUNCIO</title>
+</head>
+<body>
+  <h1>EDITAR ANUNCIO</h1>
+  
+  <form id="perfilForm">
+    <label for="telefono">TELEFONO:</label>
+    <input type="text" id="telefono" name="telefono" disabled>
+    <button type="button" onclick="habilitarCampo('telefono')">EDITAR</button>
+    <br>
+    
+    <label for="estado">ESTADO:</label>
+    <input type="text" id="estado" name="estado" disabled>
+    <button type="button" onclick="habilitarCampo('estado')">EDITAR</button>
+    <br>
+    
+    <label for="municipio">MUNICIPIO:</label>
+    <input type="text" id="municipio" name="municipio" disabled>
+    <button type="button" onclick="habilitarCampo('municipio')">EDITAR</button>
+    <br>
+    
+    <label for="correo">CORREO:</label>
+    <input type="text" id="correo" name="correo" disabled>
+    <button type="button" onclick="habilitarCampo('correo')">EDITAR</button>
+    <br>
+    
+    <label for="oficio">OFICIO:</label>
+    <input type="text" id="oficio" name="oficio" disabled>
+    <button type="button" onclick="habilitarCampo('oficio')">EDITAR</button>
+    <br>
+
+
+
+    <label for="photo">FOTO DE SU ACTIVIDAD:</label>
+    <input type="file" id="photo" name="photo" accept=".png" required><br>
+    <button type="button" onclick="habilitarCampo('photo')">EDITAR</button>
+    <br>
+
+    <label for="disponibilidad">DISPONIBILIDAD (SI/NO):</label>
+    <input type="text" id="disponibilidad" name="disponibilidad" disabled>
+    <button type="button" onclick="habilitarCampo('disponibilidad')">EDITAR</button>
+    <br>
+    
+    <label for="descripcion">DESCRIPCION:</label>
+    <input type="text" id="descripcion" name="descripcion" disabled>
+    <button type="button" onclick="habilitarCampo('descripcion')">EDITAR</button>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>CAMBIAR CONTRASEÑA</p>
+    <label for="contrasena">CONTRASEÑA:</label>
+    <input type="password" id="contrasena" name="contrasena" disabled>
+    <button type="button" onclick="habilitarCampo('contrasena')">EDITAR</button>
+    <br>
+    <br>
+    <br>
+
+    
+    <button type="button" onclick="validarFormulario()">GUARDAR DATOS</button>
+    
+  </form>
+
+  <script>
+    var camposModificados = [];
+
+    function habilitarCampo(campo) {
+      document.getElementById(campo).disabled = false;
+      if (!camposModificados.includes(campo)) {
+        camposModificados.push(campo);
+      }
+    }
+
+    function validarFormulario() {
+      var telefono = document.getElementById('telefono').value;
+      var estado = document.getElementById('estado').value;
+      var municipio = document.getElementById('municipio').value;
+      var correo = document.getElementById('correo').value;
+      var contrasena = document.getElementById('contrasena').value;
+      var oficio = document.getElementById('oficio').value;
+      var descripcion = document.getElementById('descripcion').value;
+      var disponibilidad = document.getElementById('disponibilidad').value;
+
+      var telefonoRegex = /^\d{10}$/;
+      var correoRegex = /^\S+@\S+\.\S+$/;
+      var contrasenaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*])[a-zA-Z\d@$!%*]{8,}$/;
+      var disponibilidadRegex = /^(SI|NO)$/i;
+
+      var errores = [];
+
+      if (camposModificados.includes('telefono') && !telefonoRegex.test(telefono)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: TELEFONO');
+      }
+
+      if (camposModificados.includes('estado') && !/^[a-zA-Z]+$/.test(estado)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: ESTADO');
+      }
+
+      if (camposModificados.includes('municipio') && !/^[a-zA-Z]+$/.test(municipio)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: MUNICIPIO');
+      }
+
+      if (camposModificados.includes('correo') && !correoRegex.test(correo)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: CORREO');
+      }
+
+      if (camposModificados.includes('contrasena') && !contrasenaRegex.test(contrasena)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: CONTRASEÑA');
+      }
+
+      if (camposModificados.includes('oficio') && !/^[a-zA-Z]+$/.test(oficio)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: OFICIO');
+      }
+
+      if (camposModificados.includes('disponibilidad') && !disponibilidadRegex.test(disponibilidad)) {
+        errores.push('INGRESE SOLAMENTE "SI" O "NO": DISPONIBILIDAD');
+      }
+
+
+      if (errores.length > 0) {
+        alert(errores.join('\n'));
+      } else {
+        alert('CAMBIOS CORRECTAMENTE ACTUALIZADOS');
+        window.location.href = 'PUBLICACIONES_TRABAJADOR.html';
+      }
+    }
+  </script>
+
+  <br>
+  <br>
+  <br>
+  <a href="PUBLICACIONES_TRABAJADOR.html"><button>REGRESAR</button></a>
+
+</body>
+</html>

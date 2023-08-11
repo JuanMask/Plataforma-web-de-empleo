@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi experiencia en este campo</title>
+</head>
+<body>
+  <h1>Mi experiencia en este campo me ha brindado un amplio conocimiento y habilidades que pueden marcar la diferencia en su servicio solicitado</h1>
+  
+  <p>DATOS DE CONTACTO DEL TRABAJADOR, SI ESTÁ INTERESADO EN CONTRATAR SUS SERVICIOS, PÓNGASE EN CONTACTO CON ÉL DE INMEDIATO.</p>
+
+  <img src="servicio.jpg" alt="Imagen de servicio" style="width: 300px;">
+  <br>
+  <img src="usuario.png" alt="Foto de perfil" style="width: 100px;">
+  
+  <h2>NOMBRE:</h2>
+  <h2>OFICIO:</h2>
+  <h2>TELÉFONO:</h2>
+  <h2>CORREO:</h2>
+  <h2>DISPONIBLE:</h2>
+  <h2>DESCRIPCIÓN:</h2>
+  <h2>CIUDAD:</h2>
+  <h2>CALIFICACIÓN:</h2>
+
+  <br>
+  <br>
+  <br>
+
+  
+  <h3>¿YA CONTRATO A ESTA PERSONA?, BRINDELE UNA CALIFICACION PARA EVALUAR EL DESEMPEÑO QUE REALIZO:</h3>
+  <select>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button type="button" onclick="calificar()">CALIFICAR</button>
+
+  <br>
+  <br>
+  <br>
+
+
+  
+  <h2>COMENTARIOS SOBRE EL TRABAJADOR</h2>
+  <textarea id="comentario"></textarea>
+  <button type="button" onclick="subirComentario()">Comentar</button>
+  <P>COMENTARIOS:</P>
+  <div id="comentarios"></div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  
+  <button type="button" onclick="regresar()">REGRESAR</button>
+
+  <script>
+    function calificar() {
+      // GUARDAR CALIFICACION
+      alert("CALIFICACIÓN REALIZADA");
+    }
+    
+    function subirComentario() {
+      var comentario = document.getElementById("comentario").value;
+      //GUARDAR COMENTARIO
+      var comentarioHTML = '<div style="border: 1px solid black; padding: 10px; margin-bottom: 10px;">"' + comentario + '"</div>';
+      document.getElementById("comentarios").innerHTML += comentarioHTML;
+      alert("COMENTARIO SUBIDO CON ÉXITO");
+      document.getElementById("comentario").value = ""; // Limpiar el contenido del cuadro de texto
+    }
+    
+    function regresar() {
+      window.location.href = "SERVICIOS.html";
+    }
+  </script>
+</body>
+</html>
+
+

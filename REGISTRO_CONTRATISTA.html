@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="validaciones.js"></script>
+  <title>REGISTRO DE CONTRATISTA </title>
+</head>
+<body>
+  <h1>REGISTRO DE CONTRATISTA</h1>
+  <form>
+    <label for="nombres">NOMBRE(S):</label>
+    <input type="text" id="nombres" required><br>
+
+    <label for="apellidoPaterno">APELLIDO PATERNO:</label>
+    <input type="text" id="apellidoPaterno" required><br>
+
+    <label for="apellidoMaterno">APELLIDO MATERNO:</label>
+    <input type="text" id="apellidoMaterno" required><br>
+
+    <label for="edad">Edad:</label>
+    <input type="text" id="edad" name="edad">
+
+    <label for="telefono">TELÉFONO:</label>
+    <input type="tel" id="telefono" required pattern="\d{10}"><br>
+
+    <label for="estado">ESTADO:</label>
+    <input type="text" id="estado" required><br>
+
+    <label for="municipio">MUNICIPIO/ALCALDÍA:</label>
+    <input type="text" id="municipio" required><br>
+
+    <label for="correo">CORREO:</label>
+    <input type="email" id="correo" required><br>
+
+    <label for="contrasena">CONTRASEÑA(MINIMO 8 CARACTERES CON NUMEROS, MAYUSCULAS, MINUSCULAS  Y LOS SIMBOLOS @$!%*):</label>
+    <input type="password" id="contrasena" required minlength="8"><br>
+
+    <label for="ocupacion">OCUPACIÓN:</label>
+    <input type="text" id="ocupacion" required><br>
+
+    <button type="button" onclick="validarRegistro_contratista()">REGISTRARSE</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EDITAR PERFIL CONTRATISTA</title>
+</head>
+<body>
+  <h1>EDITAR PERFIL</h1>
+  
+  <form id="perfilForm">
+    <label for="telefono">TELEFONO:</label>
+    <input type="text" id="telefono" name="telefono" disabled>
+    <button type="button" onclick="habilitarCampo('telefono')">EDITAR</button>
+    <br>
+    
+    <label for="estado">ESTADO:</label>
+    <input type="text" id="estado" name="estado" disabled>
+    <button type="button" onclick="habilitarCampo('estado')">EDITAR</button>
+    <br>
+    
+    <label for="municipio">MUNICIPIO:</label>
+    <input type="text" id="municipio" name="municipio" disabled>
+    <button type="button" onclick="habilitarCampo('municipio')">EDITAR</button>
+    <br>
+    
+    <label for="correo">CORREO:</label>
+    <input type="text" id="correo" name="correo" disabled>
+    <button type="button" onclick="habilitarCampo('correo')">EDITAR</button>
+    <br>
+    
+    <label for="contrasena">CONTRASEÑA:</label>
+    <input type="password" id="contrasena" name="contrasena" disabled>
+    <button type="button" onclick="habilitarCampo('contrasena')">EDITAR</button>
+    <br>
+    
+    <label for="ocupacion">OCUPACIÓN:</label>
+    <input type="text" id="ocupacion" name="ocupacion" disabled>
+    <button type="button" onclick="habilitarCampo('ocupacion')">EDITAR</button>
+    <br>
+    
+    <button type="button" onclick="validarFormulario()">GUARDAR DATOS</button>
+  </form>
+
+  <script>
+    var camposModificados = [];
+
+    function habilitarCampo(campo) {
+      document.getElementById(campo).disabled = false;
+      if (!camposModificados.includes(campo)) {
+        camposModificados.push(campo);
+      }
+    }
+
+    function validarFormulario() {
+      var telefono = document.getElementById('telefono').value;
+      var estado = document.getElementById('estado').value;
+      var municipio = document.getElementById('municipio').value;
+      var correo = document.getElementById('correo').value;
+      var contrasena = document.getElementById('contrasena').value;
+      var ocupacion = document.getElementById('ocupacion').value;
+
+      var telefonoRegex = /^\d{10}$/;
+      var correoRegex = /^\S+@\S+\.\S+$/;
+      var contrasenaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*])[a-zA-Z\d@$!%*]{8,}$/;
+
+      var errores = [];
+
+      if (camposModificados.includes('telefono') && !telefonoRegex.test(telefono)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: TELEFONO');
+      }
+
+      if (camposModificados.includes('estado') && !/^[a-zA-Z]+$/.test(estado)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: ESTADO');
+      }
+
+      if (camposModificados.includes('municipio') && !/^[a-zA-Z]+$/.test(municipio)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: MUNICIPIO');
+      }
+
+      if (camposModificados.includes('correo') && !correoRegex.test(correo)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: CORREO');
+      }
+
+      if (camposModificados.includes('contrasena') && !contrasenaRegex.test(contrasena)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: CONTRASEÑA');
+      }
+
+      if (camposModificados.includes('ocupacion') && !/^[a-zA-Z]+$/.test(ocupacion)) {
+        errores.push('DATOS INGRESADOS INCORRECTOS: OCUPACION');
+      }
+
+      if (errores.length > 0) {
+        alert(errores.join('\n'));
+      } else {
+        alert('CAMBIOS CORRECTAMENTE ACTUALIZADOS');
+        window.location.href = 'PERFIL_CONTRATISTA.html';
+      }
+    }
+  </script>
+</body>
+</html>

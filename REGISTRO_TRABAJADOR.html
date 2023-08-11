@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="validaciones.js"></script>
+  <title>REGISTRO DE TRABAJADOR INDEPENDIENTE</title>
+</head>
+<body>
+  <h1>REGISTRO DE TRABAJADOR INDEPENDIENTE</h1>
+  <form>
+    <label for="nombres">NOMBRE(S):</label>
+    <input type="text" id="nombres" required><br>
+
+    <label for="apellidoPaterno">APELLIDO PATERNO:</label>
+    <input type="text" id="apellidoPaterno" required><br>
+
+    <label for="apellidoMaterno">APELLIDO MATERNO:</label>
+    <input type="text" id="apellidoMaterno" required><br>
+
+    <label for="edad">Edad:</label>
+    <input type="text" id="edad" name="edad">
+
+    <label for="telefono">TELÉFONO:</label>
+    <input type="tel" id="telefono" required pattern="\d{10}"><br>
+
+    <label for="estado">ESTADO:</label>
+    <input type="text" id="estado" required><br>
+
+    <label for="municipio">MUNICIPIO/ALCALDÍA:</label>
+    <input type="text" id="municipio" required><br>
+
+    <label for="correo">CORREO:</label>
+    <input type="email" id="correo" required><br>
+
+    <label for="contrasena">CONTRASEÑA(MINIMO 8 CARACTERES CON NUMEROS, MAYUSCULAS, MINUSCULAS  Y LOS SIMBOLOS @$!%*):</label>
+    <input type="password" id="contrasena" required minlength="8"><br>
+
+    <label for="oficio">OFICIO/PROFESIÓN:</label>
+    <input type="text" id="oficio" required><br>
+
+    <label for="photo">AGREGUE UNA FOTO RELACIONADA A SU OFICIO (SOLO EN FORMATO PNG)</label>
+    <input type="file" id="photo" name="photo" accept=".png" required><br>
+
+    <label for="disponibilidad">DISPONIBLE (SI/NO)</label>
+    <input type="text" id="disponibilidad" required><br>
+
+    <label for="descripcion">DESCRIPCIÓN DE SU ACTIVIDAD:</label><br>
+    <textarea id="descripcion" rows="4" required></textarea><br>
+
+ 
+
+    <button type="button" onclick="validarRegistro_trabajador()">REGISTRARSE Y PUBLICAR OFICIO</button>
+  </form>
+</body>
+</html>
